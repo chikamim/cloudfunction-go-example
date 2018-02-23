@@ -1,0 +1,6 @@
+.DS_Store
+build
+*.zip
+main
+google-service-account.json
+.env
