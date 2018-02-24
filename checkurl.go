@@ -5,17 +5,15 @@ import (
 	"time"
 )
 
-// func main() {
-// 	ok := IsURLOK("https://codereview.stackexchange.com/questi")
-// 	fmt.Println(ok)
-// }
+const RequestTimeoutSec = 3
 
 func IsURLOK(url string) bool {
-	client := &http.Client{Timeout: time.Duration(3) * time.Second}
+	client := &http.Client{Timeout: time.Duration(RequestTimeoutSec) * time.Second}
 	res, err := client.Head(url)
 	if err != nil {
 		return false
 	}
+
 	if res.StatusCode > 400 {
 		return false
 	}
@@ -23,5 +21,6 @@ func IsURLOK(url string) bool {
 	if res.ContentLength > 0 {
 		return true
 	}
+
 	return false
 }

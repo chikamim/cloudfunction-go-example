@@ -9,14 +9,6 @@ import (
 	"google.golang.org/api/option"
 )
 
-// func main() {
-//
-// 	err := detectSafeSearch(os.Stdout, "gs://cloudvision-sandbox/pexels-photo-603560.jpeg")
-// 	if err != nil {
-// 		log.Println(err)
-// 	}
-// }
-
 // detectSafeSearch gets image properties from the Vision API for an image at the given file path.
 func detectSafeSearch(w io.Writer, file string) error {
 	ctx := context.Background()
